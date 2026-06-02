@@ -1,0 +1,2 @@
+# Exclude the source ebook PDF from version control
+ebook.pdf

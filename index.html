@@ -1,244 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Foundation</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<meta name="description" content="Foundation of Muhammad Al-Imran (MALIM) | Since 2021">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Foundation</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta name="description" content="Foundation of Muhammad Al-Imran (MALIM) | Since 2021">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Barlow+Condensed:wght@300;400&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html, body {
-  height: 100%;
-  background: #fff;
-  color: #111;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 300;
-}
+    html,
+    body {
+      height: 100%;
+      background: #fff;
+      color: #111;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+    }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 48px 64px 32px;
-}
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 48px 64px 32px;
+    }
 
-/* top line */
-.rule {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: #111;
-  transform-origin: left;
-  transform: scaleX(0);
-  animation: grow 1s cubic-bezier(.77,0,.18,1) .1s forwards;
-}
+    /* top line */
+    .rule {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #111;
+      transform-origin: left;
+      transform: scaleX(0);
+      animation: grow 1s cubic-bezier(.77, 0, .18, 1) .1s forwards;
+    }
 
-@keyframes grow { to { transform: scaleX(1); } }
+    @keyframes grow {
+      to {
+        transform: scaleX(1);
+      }
+    }
 
-/* ── MAIN ── */
-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 560px;
-  opacity: 0;
-  animation: up .8s ease .7s forwards;
-}
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 560px;
+      opacity: 0;
+      animation: up .8s ease .7s forwards;
+    }
 
-@keyframes up {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    @keyframes up {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
 
-.label {
-  font-size: 9px;
-  letter-spacing: .35em;
-  text-transform: uppercase;
-  color: #aaa;
-  margin-bottom: 28px;
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: 1.05;
-  letter-spacing: -.01em;
-  margin-bottom: 32px;
-}
+    .label {
+      font-size: 9px;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 28px;
+    }
 
-.title em {
-  font-style: italic;
-  color: #999;
-}
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -.01em;
+      margin-bottom: 32px;
+    }
 
-.statement {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1.75;
-  color: #888;
-  max-width: 400px;
-  margin-bottom: 56px;
-}
+    .title em {
+      font-style: italic;
+      color: #999;
+    }
 
-/* ── LINKS ── */
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+    .statement {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #888;
+      max-width: 400px;
+      margin-bottom: 56px;
+    }
 
-nav a {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-top: 1px solid #eee;
-  text-decoration: none;
-  color: #aaa;
-  font-size: 10px;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  transition: color .2s;
-}
+    /* ── LINKS ── */
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
 
-nav a:last-child { border-bottom: 1px solid #eee; }
+    nav a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-top: 1px solid #eee;
+      text-decoration: none;
+      color: #aaa;
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
 
-nav a:hover { color: #111; }
+    nav a:last-child {
+      border-bottom: 1px solid #eee;
+    }
 
-nav a span { font-size: 14px; letter-spacing: 0; }
+    nav a:hover {
+      color: #111;
+    }
 
-/* ── FOOTER ── */
-footer {
-  padding-top: 40px;
-  opacity: 0;
-  animation: up .8s ease 1.2s forwards;
-}
+    nav a span {
+      font-size: 14px;
+      letter-spacing: 0;
+    }
 
-footer p {
-  font-size: 9px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: #ccc;
-}
+    /* ── FOOTER ── */
+    footer {
+      padding-top: 40px;
+      opacity: 0;
+      animation: up .8s ease 1.2s forwards;
+    }
 
-footer a {
-  color: #aaa;
-  text-decoration: none;
-}
+    footer p {
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #ccc;
+    }
 
-footer a:hover {
-  color: #aaa;
-}
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
 
-/* ── WORD CYCLE ANIMATION ── */
-.word-cycle {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  min-width: 130px;
-  height: 1.1em;
-  overflow: hidden;
-  vertical-align: bottom;
-}
+    footer a:hover {
+      color: #aaa;
+    }
 
-.word-cycle-list {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
-}
+    /* ── WORD CYCLE ANIMATION ── */
+    .word-cycle {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      min-width: 130px;
+      height: 1.1em;
+      overflow: hidden;
+      vertical-align: bottom;
+    }
 
-.word-cycle-list span {
-  height: 1.1em;
-  line-height: 1.1;
-  white-space: nowrap;
-  display: block;
-}
+    .word-cycle-list {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+    }
 
-/* ── MOBILE ── */
-@media (max-width: 600px) {
-  body { padding: 40px 32px 28px; }
-  .title { font-size: 36px; }
-}
-</style>
+    .word-cycle-list span {
+      height: 1.1em;
+      line-height: 1.1;
+      white-space: nowrap;
+      display: block;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      body {
+        padding: 40px 32px 28px;
+      }
+
+      .title {
+        font-size: 36px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="rule"></div>
+  <div class="rule"></div>
 
-<main>
-  <p class="label">The Foundation</p>
+  <main>
+    <p class="label">The Foundation</p>
 
-  <h1 class="title">
-    MALIM<br>
-    <em>& the 
-      <span class="word-cycle">
-        <span class="word-cycle-list" id="cycleList">
-          <span>word.</span>
-          <span>work.</span>
-          <span>world.</span>
-          <span>worth.</span>
+    <h1 class="title">
+      MALIM<br>
+      <em>& the
+        <span class="word-cycle">
+          <span class="word-cycle-list" id="cycleList">
+            <span>word.</span>
+            <span>work.</span>
+            <span>world.</span>
+            <span>worth.</span>
+          </span>
         </span>
-      </span>
-    </em>
-  </h1>
+      </em>
+    </h1>
 
-  <p class="statement">Be True, Be Just,<br>and Contribute</p>
+    <p class="statement">Be True, Be Just,<br>and Contribute</p>
 
-  <nav>
-      <a href="https://www.amazon.com/When-Night-Shines-Brightest-anthology-ebook/dp/B0GSRW2M4X" target="_blank" rel="noopener">
-      The Anthology (Kindle) <span>↗</span>
-    </a>
-    <a href="https://malim.my" target="_blank" rel="noopener">
-      Social Entrepreneurship <span>↗</span>
-    </a>
-      </nav>
-</main>
+    <nav>
+      <a href="https://www.amazon.com/When-Night-Shines-Brightest-anthology-ebook/dp/B0GSRW2M4X" target="_blank"
+        rel="noopener">
+        The Anthology (Kindle) <span>↗</span>
+      </a>
+      <a href="https://malim.my" target="_blank" rel="noopener">
+        Social Entrepreneurship <span>↗</span>
+      </a>
+    </nav>
+  </main>
 
-<footer>
-  <p>&copy; 2021 - <script>document.write(new Date().getFullYear())</script> Muhammad Al-Imran Abdul Rahim (MALIM) — <a href="about.html">About</a></p>
-</footer>
+  <footer>
+    <p>&copy; 2021 -
+      <script>document.write(new Date().getFullYear())</script> Muhammad Al-Imran Abdul Rahim (MALIM) — <a
+        href="about.html">About</a> — <a href="writings.html">Writings</a>
+    </p>
+  </footer>
 
-<script>
-// Configure sliding vertical word scroll parameters
-const totalWords = 4;
-let currentIndex = 0;
-const listElement = document.getElementById('cycleList');
-let autoplayInterval;
+  <script>
+    // Configure sliding vertical word scroll parameters
+    const totalWords = 4;
+    let currentIndex = 0;
+    const listElement = document.getElementById('cycleList');
+    let autoplayInterval;
 
-// Function to transition smoothly to the next word
-function updateWordCycle(index) {
-  currentIndex = index;
-  // Translate vertically matching item height exactly
-  listElement.style.transform = `translateY(-${currentIndex * 1.1}em)`;
-}
+    // Function to transition smoothly to the next word
+    function updateWordCycle(index) {
+      currentIndex = index;
+      // Translate vertically matching item height exactly
+      listElement.style.transform = `translateY(-${currentIndex * 1.1}em)`;
+    }
 
-// Handle transition to next state
-function nextWord() {
-  const nextIndex = (currentIndex + 1) % totalWords;
-  updateWordCycle(nextIndex);
-}
+    // Handle transition to next state
+    function nextWord() {
+      const nextIndex = (currentIndex + 1) % totalWords;
+      updateWordCycle(nextIndex);
+    }
 
-// Automatic cycling every 4.5 seconds
-function startAutoplay() {
-  autoplayInterval = setInterval(() => {
-    nextWord();
-  }, 4500);
-}
+    // Automatic cycling every 4.5 seconds
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => {
+        nextWord();
+      }, 4500);
+    }
 
-// Initialization on load
-window.onload = function() {
-  startAutoplay();
-};
-</script>
+    // Initialization on load
+    window.onload = function () {
+      startAutoplay();
+    };
+  </script>
 
 </body>
+
 </html>

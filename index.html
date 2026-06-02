@@ -171,11 +171,11 @@ footer a:hover {
 }
 
 @keyframes wordFade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  33% { opacity: 1; }
-  43% { opacity: 0; }
-  100% { opacity: 0; }
+  0% { opacity: 0; transform: translateY(1.2em); }
+  10% { opacity: 1; transform: translateY(0); }
+  33% { opacity: 1; transform: translateY(0); }
+  43% { opacity: 0; transform: translateY(-1.2em); }
+  100% { opacity: 0; transform: translateY(-1.2em); }
 }
 
 /* ── MOBILE ── */

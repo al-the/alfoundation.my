@@ -1108,32 +1108,117 @@
       text-align: center;
     }
 
+    .mobile-header {
+      display: none;
+    }
+
+    .sidebar-backdrop {
+      display: none;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 900px) {
+      .mobile-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        padding: 0 24px;
+        z-index: 990;
+      }
+
+      .mobile-header .menu-toggle,
+      .mobile-header .mobile-search-toggle {
+        background: none;
+        border: none;
+        color: #111;
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-header .mobile-site-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        font-weight: 400;
+      }
+
+      .mobile-header .mobile-site-title a {
+        text-decoration: none;
+        color: #111;
+      }
+
+      .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1050;
+      }
+
+      .sidebar-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
       .app-container {
         flex-direction: column;
-        padding: 40px 32px 28px;
+        padding: 80px 24px 28px;
         gap: 40px;
       }
 
       aside {
-        width: 100%;
-        height: auto;
-        position: relative;
+        position: fixed;
         top: 0;
+        left: -320px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        z-index: 1100;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
         border-right: none;
-        border-bottom: 1px solid #eee;
-        padding-right: 0;
-        padding-bottom: 32px;
+        padding: 32px 24px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      aside.open {
+        transform: translateX(320px);
       }
 
       .toc-container {
-        max-height: 200px;
+        max-height: none;
+        flex: 1;
       }
 
       main {
-        gap: 72px;
-        padding-bottom: 60px;
+        gap: 64px;
+        padding-bottom: 48px;
+        max-width: 100%;
+      }
+
+      .article-title {
+        font-size: clamp(24px, 6vw, 36px);
+      }
+
+      .article-anchor {
+        display: none;
       }
     }
   </style>
@@ -1142,6 +1227,23 @@
 <body>
 
   <div class="rule"></div>
+
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+  <div class="mobile-header">
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle Table of Contents">
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 1H17M1 6H17M1 11H17" stroke-linecap="round" />
+      </svg>
+    </button>
+    <div class="mobile-site-title"><a href="/">MALIM</a></div>
+    <button id="mobileSearchToggle" class="mobile-search-toggle" aria-label="Toggle Search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21L16.65 16.65" />
+      </svg>
+    </button>
+  </div>
 
   <div class="app-container">
     <aside>
@@ -4005,6 +4107,54 @@
       }, options);
 
       articles.forEach(article => observer.observe(article));
+
+      // Mobile Menu and Search Drawer Toggles
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+      const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+      const aside = document.querySelector('aside');
+
+      function openSidebar() {
+        aside.classList.add('open');
+        sidebarBackdrop.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background page scrolling
+      }
+
+      function closeSidebar() {
+        aside.classList.remove('open');
+        sidebarBackdrop.classList.remove('show');
+        document.body.style.overflow = '';
+      }
+
+      if (menuToggle && sidebarBackdrop) {
+        menuToggle.addEventListener('click', () => {
+          if (aside.classList.contains('open')) {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
+        });
+
+        sidebarBackdrop.addEventListener('click', closeSidebar);
+      }
+
+      if (mobileSearchToggle) {
+        mobileSearchToggle.addEventListener('click', () => {
+          openSidebar();
+          setTimeout(() => {
+            searchInput.focus();
+          }, 350); // Focus input after slide animation completes
+        });
+      }
+
+      // Close sidebar when a TOC item link is clicked (on mobile)
+      tocItems.forEach(item => {
+        item.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            closeSidebar();
+          }
+        });
+      });
     });
   </script>
 

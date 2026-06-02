@@ -142,11 +142,13 @@ footer a:hover {
 /* ── WORD CYCLE ANIMATION ── */
 .word-cycle {
   position: relative;
-  display: inline;
+  display: inline-block;
 }
 
 .word-cycle span {
-  display: inline;
+  position: absolute;
+  left: 0;
+  top: 0;
   opacity: 0;
   animation: wordFade 6s infinite;
 }

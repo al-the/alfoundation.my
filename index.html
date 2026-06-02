@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foundation</title>
+<meta name="description" content="Muhammad Al-Imran legacy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Barlow+Condensed:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background: #fff;
+  color: #111;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 48px 64px 32px;
+}
+
+/* top line */
+.rule {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: #111;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: grow 1s cubic-bezier(.77,0,.18,1) .1s forwards;
+}
+
+@keyframes grow { to { transform: scaleX(1); } }
+
+/* ── MAIN ── */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+  opacity: 0;
+  animation: up .8s ease .7s forwards;
+}
+
+@keyframes up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.label {
+  font-size: 9px;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+  margin-bottom: 32px;
+}
+
+.title em {
+  font-style: italic;
+  color: #999;
+}
+
+.statement {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #888;
+  max-width: 400px;
+  margin-bottom: 56px;
+}
+
+/* ── LINKS ── */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+nav a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-top: 1px solid #eee;
+  text-decoration: none;
+  color: #aaa;
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+
+nav a:last-child { border-bottom: 1px solid #eee; }
+
+nav a:hover { color: #111; }
+
+nav a span { font-size: 14px; letter-spacing: 0; }
+
+/* ── FOOTER ── */
+footer {
+  padding-top: 40px;
+  opacity: 0;
+  animation: up .8s ease 1.2s forwards;
+}
+
+footer p {
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  body { padding: 40px 32px 28px; }
+  .title { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rule"></div>
+
+<main>
+  <p class="label">The Foundation</p>
+
+  <h1 class="title">MALIM<br><em>& the work.</em></h1>
+
+  <p class="statement">On freedom, virtue,<br>and the examined life.</p>
+
+  <nav>
+    <a href="https://malim.my" target="_blank" rel="noopener">
+      MALIM AI Labs <span>↗</span>
+    </a>
+    <a href="https://www.amazon.com" target="_blank" rel="noopener">
+      The Anthology <span>↗</span>
+    </a>
+    <a href="https://alfoundation.my/about" target="_blank" rel="noopener">
+      About <span>↗</span>
+    </a>
+  </nav>
+</main>
+
+<footer>
+  <p>&copy; <script>document.write(new Date().getFullYear())</script> Muhammad Al-Imran Abdul Rahim (MALIM)</p>
+</footer>
+
+</body>
+</html>

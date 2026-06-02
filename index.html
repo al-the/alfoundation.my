@@ -143,6 +143,9 @@ footer a:hover {
 .word-cycle {
   position: relative;
   display: inline-block;
+  min-width: 70px;
+  height: 1.2em;
+  overflow: hidden;
 }
 
 .word-cycle span {
@@ -151,6 +154,7 @@ footer a:hover {
   top: 0;
   opacity: 0;
   animation: wordFade 6s infinite;
+  white-space: nowrap;
 }
 
 .word-cycle span:nth-child(1) {

@@ -142,22 +142,13 @@ footer a:hover {
 /* ── WORD CYCLE ANIMATION ── */
 .word-cycle {
   position: relative;
-  display: inline-block;
-  min-width: 130px;
-  height: 1.2em;
-  overflow: hidden;
-  vertical-align: bottom;
+  display: inline;
 }
 
 .word-cycle span {
-  position: absolute;
-  left: 0;
-  opacity: 1;
-  animation: wordScroll 6s infinite;
-  white-space: nowrap;
-  display: block;
-  height: 1.2em;
-  line-height: 1.2em;
+  display: inline;
+  opacity: 0;
+  animation: wordFade 6s infinite;
 }
 
 .word-cycle span:nth-child(1) {
@@ -172,12 +163,12 @@ footer a:hover {
   animation-delay: 4s;
 }
 
-@keyframes wordScroll {
-  0% { opacity: 0; transform: translateY(1.2em); }
-  10% { opacity: 1; transform: translateY(0); }
-  33% { opacity: 1; transform: translateY(0); }
-  43% { opacity: 0; transform: translateY(-1.2em); }
-  100% { opacity: 0; transform: translateY(-1.2em); }
+@keyframes wordFade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  33% { opacity: 1; }
+  43% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 /* ── MOBILE ── */

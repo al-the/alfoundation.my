@@ -173,10 +173,11 @@ footer a:hover {
 }
 
 @keyframes wordScroll {
-  0% { transform: translateY(0); opacity: 1; }
-  35% { transform: translateY(0); opacity: 1; }
-  40% { transform: translateY(-1.2em); opacity: 1; }
-  100% { transform: translateY(-1.2em); opacity: 1; }
+  0% { opacity: 0; transform: translateY(1.2em); }
+  10% { opacity: 1; transform: translateY(0); }
+  33% { opacity: 1; transform: translateY(0); }
+  43% { opacity: 0; transform: translateY(-1.2em); }
+  100% { opacity: 0; transform: translateY(-1.2em); }
 }
 
 /* ── MOBILE ── */

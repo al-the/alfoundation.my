@@ -143,10 +143,11 @@ footer a:hover {
 .word-cycle {
   position: relative;
   display: inline-block;
-  min-width: 200px;
-  height: 1.2em;
+  min-width: 110px;
+  height: 1em;
   overflow: hidden;
-  vertical-align: baseline;
+  vertical-align: text-bottom;
+  line-height: 1;
 }
 
 .word-cycle span {
@@ -171,11 +172,11 @@ footer a:hover {
 }
 
 @keyframes wordFade {
-  0% { opacity: 0; transform: translateY(1.2em); }
+  0% { opacity: 0; transform: translateY(1em); }
   10% { opacity: 1; transform: translateY(0); }
   33% { opacity: 1; transform: translateY(0); }
-  43% { opacity: 0; transform: translateY(-1.2em); }
-  100% { opacity: 0; transform: translateY(-1.2em); }
+  43% { opacity: 0; transform: translateY(-1em); }
+  100% { opacity: 0; transform: translateY(-1em); }
 }
 
 /* ── MOBILE ── */

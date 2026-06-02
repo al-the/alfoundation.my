@@ -142,41 +142,25 @@ footer a:hover {
 /* ── WORD CYCLE ANIMATION ── */
 .word-cycle {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   min-width: 130px;
-  height: 1em;
+  height: 1.1em;
   overflow: hidden;
-  vertical-align: middle;
-  line-height: 1;
+  vertical-align: bottom;
 }
 
-.word-cycle span {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  animation: wordFade 6s infinite;
+.word-cycle-list {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.word-cycle-list span {
+  height: 1.1em;
+  line-height: 1.1;
   white-space: nowrap;
-}
-
-.word-cycle span:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.word-cycle span:nth-child(2) {
-  animation-delay: 2s;
-}
-
-.word-cycle span:nth-child(3) {
-  animation-delay: 4s;
-}
-
-@keyframes wordFade {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  33% { opacity: 1; }
-  43% { opacity: 0; }
-  100% { opacity: 0; }
+  display: block;
 }
 
 /* ── MOBILE ── */
@@ -193,7 +177,19 @@ footer a:hover {
 <main>
   <p class="label">The Foundation</p>
 
-  <h1 class="title">MALIM<br><em>& the <span class="word-cycle"><span>word.</span><span>work.</span><span>world.</span></span></em></h1>
+  <h1 class="title">
+    MALIM<br>
+    <em>& the 
+      <span class="word-cycle">
+        <span class="word-cycle-list" id="cycleList">
+          <span>word.</span>
+          <span>work.</span>
+          <span>world.</span>
+          <span>worth.</span>
+        </span>
+      </span>
+    </em>
+  </h1>
 
   <p class="statement">Be True, Be Just,<br>and Contribute</p>
 
@@ -213,6 +209,39 @@ footer a:hover {
 <footer>
   <p>&copy; <script>document.write(new Date().getFullYear())</script> Muhammad Al-Imran Abdul Rahim (MALIM) — <a href="about.html">About</a></p>
 </footer>
+
+<script>
+// Configure sliding vertical word scroll parameters
+const totalWords = 4;
+let currentIndex = 0;
+const listElement = document.getElementById('cycleList');
+let autoplayInterval;
+
+// Function to transition smoothly to the next word
+function updateWordCycle(index) {
+  currentIndex = index;
+  // Translate vertically matching item height exactly
+  listElement.style.transform = `translateY(-${currentIndex * 1.1}em)`;
+}
+
+// Handle transition to next state
+function nextWord() {
+  const nextIndex = (currentIndex + 1) % totalWords;
+  updateWordCycle(nextIndex);
+}
+
+// Automatic cycling every 4.5 seconds
+function startAutoplay() {
+  autoplayInterval = setInterval(() => {
+    nextWord();
+  }, 4500);
+}
+
+// Initialization on load
+window.onload = function() {
+  startAutoplay();
+};
+</script>
 
 </body>
 </html>

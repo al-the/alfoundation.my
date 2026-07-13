@@ -193,6 +193,14 @@
       display: block;
     }
 
+    /* ── RUBBER BAND SCROLL ── */
+    .rb-scroll {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      will-change: transform;
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 600px) {
       body {
@@ -210,6 +218,7 @@
 
   <div class="rule"></div>
 
+  <div class="rb-scroll">
   <main>
     <p class="label">The Foundation</p>
 
@@ -246,6 +255,9 @@
         href="about.html">About</a> | <a href="writings.html">Writings</a>
     </p>
   </footer>
+  </div>
+
+  <script src="rubber-band.js"></script>
 
   <script>
     // Configure sliding vertical word scroll parameters

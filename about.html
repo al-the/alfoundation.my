@@ -16,7 +16,8 @@ html { background: #fff; }
 html, body { height: 100%; color: #111; font-family: 'Barlow Condensed', sans-serif; font-weight: 300; }
 body { display: flex; flex-direction: column; min-height: 100vh; padding: clamp(24px, 4vh, 48px) clamp(32px, 5vw, 64px) clamp(20px, 3vh, 32px); background: transparent; }
 @media (min-height: 600px) and (min-width: 601px) {
-  html, body { overflow: hidden; }
+  html, body { overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
 }
 .bg-image {
   position: fixed;

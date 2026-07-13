@@ -842,6 +842,7 @@
       width: 100%;
       padding: 48px 64px 32px;
       gap: 64px;
+      will-change: transform;
     }
 
     /* Sidebar styling */
@@ -1243,7 +1244,7 @@
     </button>
   </div>
 
-  <div class="app-container">
+  <div class="app-container rb-scroll">
     <aside>
       <div class="sidebar-header">
         <span class="site-label">The Foundation</span>
@@ -3946,6 +3947,8 @@
 
     </main>
   </div>
+
+  <script src="rubber-band.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
